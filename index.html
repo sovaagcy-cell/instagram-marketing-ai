@@ -1244,11 +1244,20 @@
 
   <script>
 
+
+
 const insightsInput = document.getElementById("insights");
 const fileName = document.getElementById("fileName");
 
+
+/* =========================
+   FILE UPLOAD
+========================= */
+
 if (insightsInput) {
+
   insightsInput.addEventListener("change", function () {
+
     const files = Array.from(this.files || []);
 
     if (!files.length) {
@@ -1256,124 +1265,200 @@ if (insightsInput) {
       return;
     }
 
-    fileName.textContent = "✓ Загружено файлов: " + files.length;
+    fileName.textContent =
+      "✓ Загружено файлов: " + files.length;
+
   });
+
 }
 
 
 /* =========================
-   DEMO AI AUDIT
+   MARKETING AI AUDIT RESULTS
 ========================= */
 
 const auditResults = [
-  {
-    score: 78,
-    title: "Хороший потенциал",
-    description:
-      "Instagram работает стабильно, однако есть несколько точек роста. Основной потенциал находится в Reels, вовлечённости и конверсии просмотров в заявки.",
-    content: 84,
-    reels: 79,
-    reach: 68,
-    engagement: 71,
-    growth: 75,
-    consistency: 91,
-    problem:
-      "Часть контента получает значительно меньше охвата. Reels можно использовать активнее, а CTA сделать более конкретными.",
-    strength:
-      "Хорошая регулярность публикаций, единый визуальный стиль и стабильная активность аудитории.",
-    performance:
-      "SMM работает на хорошем уровне, но пока есть резерв для увеличения охвата и количества целевых действий.",
-    improve:
-      "Усилить первые 2 секунды Reels, добавить больше продающих CTA и чаще повторять форматы, которые уже показали хороший результат.",
-    plan: [
-      "Разобрать 10 лучших публикаций и найти повторяющиеся успешные темы.",
-      "Создать 8–10 Reels с разными hooks.",
-      "Добавить сильный CTA минимум в 70% продающего контента."
-    ]
-  },
 
   {
-    score: 64,
-    title: "Есть точки роста",
+    score: 39,
+
+    title: "SMM требует серьёзного улучшения",
+
     description:
-      "Профиль выглядит активным, но маркетинговая эффективность пока ниже возможного уровня. Основная проблема — недостаточная конверсия внимания в действия.",
-    content: 70,
+      "Аккаунт выглядит красиво и премиально, но пока слабо работает как инструмент привлечения клиентов. Основная проблема находится не в визуале, а в SMM-стратегии, продающем контенте и отсутствии очевидной связи между контентом и бизнес-результатом.",
+
+    content: 52,
+    reels: 34,
+    reach: 31,
+    engagement: 36,
+    growth: 35,
+    consistency: 61,
+
+    problem:
+      "Самое слабое место — SMM. В аккаунте много красивой подачи услуг, но недостаточно сильных Reels, Before/After, отзывов, экспертного контента, hooks и публикаций, которые мотивируют клиента обратиться.",
+
+    strength:
+      "Визуальная часть — сильная сторона. Аккаунт выглядит аккуратно, эстетично и премиально. Есть широкий спектр услуг и хорошая база для построения сильного beauty-бренда.",
+
+    performance:
+      "Если бизнес ежемесячно оплачивает SMM, по аккаунту сложно увидеть достаточную ценность этой работы. Видно, что страницу ведут, но не видно понятной системы: стратегия → контент → охваты → заявки → клиенты. Поэтому возникает вопрос: за какой конкретный результат бизнес платит SMM каждый месяц?",
+
+    improve:
+      "Необходимо перестроить SMM вокруг результата: сильные Reels, hooks, Before/After, реальные отзывы, экспертные видео, лица специалистов, проблемы клиентов и конкретные CTA на запись.",
+
+    hooks: [
+
+      "Почему эта процедура не работает у большинства?",
+
+      "Результат после 1 процедуры — смотрите Before/After",
+
+      "3 ошибки, из-за которых вы теряете деньги на уходе за кожей",
+
+      "Вот почему ваш Instagram не приводит клиентов",
+
+      "Что происходит с кожей после этой процедуры?",
+
+      "Стоит ли платить за эту процедуру? Показываем реальный результат"
+
+    ],
+
+    plan: [
+
+      "Перестроить контент-стратегию вокруг привлечения клиентов, а не только красивой ленты.",
+
+      "Создать серию продающих Reels по схеме: проблема → решение → процедура → результат → CTA.",
+
+      "Регулярно показывать реальные Before/After, отзывы клиентов и результаты процедур.",
+
+      "Добавить больше экспертного контента, специалистов и живого общения с аудиторией.",
+
+      "Каждую неделю анализировать охваты, сохранения, переходы в профиль, Direct и реальные записи."
+
+    ]
+
+  },
+
+
+  {
+    score: 46,
+
+    title: "Низкая эффективность SMM",
+
+    description:
+      "Профиль имеет хороший визуальный потенциал, однако контент недостаточно активно превращает внимание аудитории в действия и записи.",
+
+    content: 57,
+    reels: 41,
+    reach: 39,
+    engagement: 43,
+    growth: 44,
+    consistency: 65,
+
+    problem:
+      "Основная проблема — слишком много демонстрации услуг и недостаточно контента, который раскрывает проблемы клиентов, показывает реальные результаты и приводит к записи.",
+
+    strength:
+      "Аккаунт визуально выглядит профессионально и имеет хороший ассортимент процедур.",
+
+    performance:
+      "SMM присутствует, но его бизнес-эффект недостаточно очевиден. Не видно чёткой системы KPI и связи между публикациями и количеством заявок.",
+
+    improve:
+      "Усилить Reels, добавить Before/After, отзывы, экспертность и более сильные CTA.",
+
+    hooks: [
+
+      "5 причин, почему ваша кожа выглядит уставшей",
+
+      "До/После: результат клиента без фильтров",
+
+      "Что выбрать, если вас беспокоит именно эта проблема?",
+
+      "Ошибка, которую совершают почти все наши клиенты",
+
+      "Можно ли получить результат уже после первой процедуры?"
+
+    ],
+
+    plan: [
+
+      "Создать контентные рубрики под основные проблемы клиентов.",
+
+      "Публиковать больше Reels с сильным первым кадром.",
+
+      "Показывать реальные результаты клиентов.",
+
+      "Добавить больше видеоотзывов.",
+
+      "Отслеживать не только лайки, но и заявки и записи."
+
+    ]
+
+  },
+
+
+  {
+    score: 62,
+
+    title: "Есть потенциал для роста",
+
+    description:
+      "Аккаунт имеет хорошую основу, однако маркетинговая стратегия пока раскрыта не полностью.",
+
+    content: 69,
     reels: 58,
-    reach: 55,
-    engagement: 63,
+    reach: 54,
+    engagement: 57,
     growth: 61,
-    consistency: 82,
-    problem:
-      "Низкий охват части публикаций, слабые hooks в Reels и недостаточно понятные причины для подписки или обращения.",
-    strength:
-      "Контент публикуется достаточно регулярно, а профиль имеет базовую структуру и потенциал для роста.",
-    performance:
-      "SMM требует более чёткой стратегии: необходимо связать контент, охват и коммерческие цели бизнеса.",
-    improve:
-      "Сделать контент более ориентированным на потребности клиента, усилить Reels и добавить больше конкретных предложений.",
-    plan: [
-      "Пересмотреть позиционирование профиля и первые строки BIO.",
-      "Протестировать 12 Reels с разными форматами hooks.",
-      "Создать 3 продающие контентные рубрики."
-    ]
-  },
+    consistency: 76,
 
-  {
-    score: 87,
-    title: "Сильный результат",
-    description:
-      "Профиль демонстрирует высокий уровень эффективности. Контент выглядит системным, а основные показатели находятся выше среднего уровня.",
-    content: 92,
-    reels: 89,
-    reach: 84,
-    engagement: 86,
-    growth: 83,
-    consistency: 94,
     problem:
-      "Главная задача сейчас — не потерять динамику роста. Можно улучшить конверсию уже существующего охвата в заявки и продажи.",
-    strength:
-      "Сильный контент, высокая регулярность, хороший визуальный уровень и понятная коммуникация с аудиторией.",
-    performance:
-      "SMM работает эффективно и уже создаёт хорошую базу для масштабирования.",
-    improve:
-      "Увеличить долю контента, который напрямую приводит к заявкам, и масштабировать лучшие форматы.",
-    plan: [
-      "Определить 5 самых эффективных форматов контента.",
-      "Масштабировать лучшие Reels и повторять успешные hooks.",
-      "Настроить еженедельный контроль охвата, ER и заявок."
-    ]
-  },
+      "Контент выглядит хорошо, но часть публикаций не создаёт достаточно сильного повода для просмотра, сохранения или обращения.",
 
-  {
-    score: 71,
-    title: "Средний результат",
-    description:
-      "Instagram имеет рабочую основу, но контент пока не полностью раскрывает коммерческий потенциал аккаунта.",
-    content: 76,
-    reels: 69,
-    reach: 62,
-    engagement: 67,
-    growth: 73,
-    consistency: 86,
-    problem:
-      "Контент достаточно регулярный, но не всегда создаёт сильный повод для просмотра, сохранения или обращения.",
     strength:
-      "Стабильность публикаций и наличие нескольких перспективных форматов.",
+      "Хорошая визуальная база, регулярность и широкий выбор услуг.",
+
     performance:
-      "SMM находится на среднем уровне. При правильной оптимизации можно заметно увеличить результат без резкого увеличения бюджета.",
+      "SMM можно сделать значительно эффективнее за счёт более чёткой стратегии и измерения коммерческих результатов.",
+
     improve:
-      "Добавить больше экспертного и полезного контента, усилить первые секунды видео и использовать более конкретные CTA.",
+      "Увеличить долю Reels, экспертного контента, отзывов и публикаций с конкретным предложением.",
+
+    hooks: [
+
+      "Почему наши клиенты возвращаются снова?",
+
+      "Результат, который говорит сам за себя",
+
+      "Что изменится после этой процедуры?",
+
+      "3 вещи, которые нужно знать перед процедурой",
+
+      "Реальный результат нашего клиента"
+
+    ],
+
     plan: [
-      "Создать контентные рубрики под разные этапы воронки.",
-      "Публиковать минимум 2–3 Reels в неделю.",
-      "Отслеживать сохранения, отправки и переходы в профиль."
+
+      "Определить лучшие темы и форматы контента.",
+
+      "Увеличить количество Reels.",
+
+      "Добавить больше Before/After.",
+
+      "Создать серию экспертных видео.",
+
+      "Отслеживать заявки и записи из Instagram."
+
     ]
+
   }
+
 ];
 
 
 /* =========================
-   MAIN FUNCTION
+   MAIN AUDIT
 ========================= */
 
 function runDemoAudit() {
@@ -1393,76 +1478,147 @@ function runDemoAudit() {
   const files =
     Array.from(insightsInput.files || []);
 
+
+  /* VALIDATION */
+
   if (!username) {
+
     alert("Введите Instagram username");
+
     return;
+
   }
+
 
   if (!niche) {
+
     alert("Введите нишу бизнеса");
+
     return;
+
   }
+
 
   if (!files.length) {
-    alert("Загрузите хотя бы один скриншот Instagram Insights");
+
+    alert(
+      "Загрузите хотя бы один скриншот Instagram Insights"
+    );
+
     return;
+
   }
 
+
+  /* BUTTON */
 
   const button =
     document.querySelector(".analyze-button");
 
   button.disabled = true;
 
+
   /* LOADING */
 
-  let seconds = 0;
+  let progress = 0;
 
   button.textContent =
     "Анализируем Insights... 0%";
 
+
   const loadingInterval =
-    setInterval(() => {
+    setInterval(function () {
 
-      seconds += 10;
+      progress += 10;
 
-      if (seconds >= 100) {
-        seconds = 100;
+      if (progress >= 100) {
+
+        progress = 100;
+
       }
 
       button.textContent =
-        "AI анализирует... " + seconds + "%";
+        "AI анализирует... " + progress + "%";
 
     }, 180);
 
 
-  /* небольшая задержка, чтобы пользователь увидел процесс */
+  /* ANALYSIS DELAY */
 
-  setTimeout(() => {
+  setTimeout(function () {
 
     clearInterval(loadingInterval);
 
-    const result =
-      auditResults[
-        Math.floor(
-          Math.random() * auditResults.length
-        )
-      ];
+
+    /*
+      Для демо выбирается один из вариантов.
+      Beauty Larnaca получает первый вариант —
+      39/100.
+    */
+
+    let result;
 
 
-    /* PROFILE */
+    const normalizedUsername =
+      username
+        .toLowerCase()
+        .replace("@", "")
+        .trim();
 
-    document.getElementById("profileName").textContent =
+
+    /*
+      Если пользователь тестирует Beauty Larnaca,
+      показываем специально подготовленный аудит.
+    */
+
+    if (
+      normalizedUsername.includes("beauty") ||
+      normalizedUsername.includes("larnaca")
+    ) {
+
+      result =
+        auditResults[0];
+
+    } else {
+
+      /*
+        Для других аккаунтов
+        выбираем другой результат.
+      */
+
+      result =
+        auditResults[
+          Math.floor(
+            Math.random() * auditResults.length
+          )
+        ];
+
+    }
+
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    document.getElementById(
+      "profileName"
+    ).textContent =
       "@" + username + " • " + niche;
 
 
-    /* SCORE */
+    /* =========================
+       SCORE
+    ========================= */
 
-    document.getElementById("score").textContent =
+    document.getElementById(
+      "score"
+    ).textContent =
       result.score;
 
 
-    /* SCORE TITLE */
+    /* =========================
+       SCORE TITLE
+    ========================= */
 
     document.querySelector(
       ".score-info h3"
@@ -1470,7 +1626,9 @@ function runDemoAudit() {
       result.title;
 
 
-    /* SCORE DESCRIPTION */
+    /* =========================
+       SCORE DESCRIPTION
+    ========================= */
 
     document.querySelector(
       ".score-info p"
@@ -1478,110 +1636,392 @@ function runDemoAudit() {
       result.description;
 
 
-    /* METRICS */
+    /* =========================
+       METRICS
+    ========================= */
 
     const metrics =
       document.querySelectorAll(".metric");
 
 
     const values = [
+
       result.content,
+
       result.reels,
+
       result.reach,
+
       result.engagement,
+
       result.growth,
+
       result.consistency
+
     ];
 
 
-    metrics.forEach((metric, index) => {
+    metrics.forEach(
+      function (metric, index) {
 
-      const number =
-        metric.querySelector(".metric-number");
+        const number =
+          metric.querySelector(
+            ".metric-number"
+          );
 
-      const bar =
-        metric.querySelector(".progress-bar");
-
-
-      number.textContent =
-        values[index];
-
-
-      bar.style.width =
-        values[index] + "%";
-
-    });
+        const bar =
+          metric.querySelector(
+            ".progress-bar"
+          );
 
 
-    /* INSIGHTS */
-
-    const insightBoxes =
-      document.querySelectorAll(".insight");
+        number.textContent =
+          values[index];
 
 
-    insightBoxes[0].querySelector("p").textContent =
-      result.problem;
-
-
-    insightBoxes[1].querySelector("p").textContent =
-      result.strength;
-
-
-    insightBoxes[2].querySelector("p").textContent =
-      result.performance;
-
-
-    insightBoxes[3].querySelector("p").textContent =
-      result.improve;
-
-
-    /* PLAN */
-
-    const plan =
-      document.querySelector(".plan");
-
-
-    const planItems =
-      plan.querySelectorAll(".plan-item");
-
-
-    result.plan.forEach((text, index) => {
-
-      if (planItems[index]) {
-
-        planItems[index]
-          .querySelector("div:last-child")
-          .textContent = text;
+        bar.style.width =
+          values[index] + "%";
 
       }
+    );
 
-    });
+
+    /* =========================
+       INSIGHTS
+    ========================= */
+
+    const insightBoxes =
+      document.querySelectorAll(
+        ".insight"
+      );
 
 
-    /* SHOW DASHBOARD */
+    if (insightBoxes[0]) {
+
+      insightBoxes[0]
+        .querySelector("p")
+        .textContent =
+        result.problem;
+
+    }
+
+
+    if (insightBoxes[1]) {
+
+      insightBoxes[1]
+        .querySelector("p")
+        .textContent =
+        result.strength;
+
+    }
+
+
+    if (insightBoxes[2]) {
+
+      insightBoxes[2]
+        .querySelector("p")
+        .textContent =
+        result.performance;
+
+    }
+
+
+    if (insightBoxes[3]) {
+
+      insightBoxes[3]
+        .querySelector("p")
+        .textContent =
+        result.improve;
+
+    }
+
+
+    /* =========================
+       PLAN
+    ========================= */
+
+    const planItems =
+      document.querySelectorAll(
+        ".plan-item"
+      );
+
+
+    result.plan.forEach(
+      function (text, index) {
+
+        if (planItems[index]) {
+
+          planItems[index]
+            .querySelector(
+              "div:last-child"
+            )
+            .textContent =
+            text;
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       SHOW DASHBOARD
+    ========================= */
 
     document.getElementById(
       "dashboard"
-    ).style.display = "block";
+    ).style.display =
+      "block";
 
 
-    /* RESET BUTTON */
+    /* =========================
+       ADD SMM VERDICT
+    ========================= */
 
-    button.disabled = false;
+    let verdict =
+      document.getElementById(
+        "smmVerdict"
+      );
+
+
+    if (!verdict) {
+
+      verdict =
+        document.createElement(
+          "div"
+        );
+
+      verdict.id =
+        "smmVerdict";
+
+      verdict.className =
+        "insight problem";
+
+
+      verdict.innerHTML = `
+
+        <h3>
+          ⚠️ Главный вывод по SMM
+        </h3>
+
+        <p></p>
+
+      `;
+
+
+      const insightGrid =
+        document.querySelector(
+          ".insight-grid"
+        );
+
+
+      if (insightGrid) {
+
+        insightGrid.appendChild(
+          verdict
+        );
+
+      }
+
+    }
+
+
+    verdict.querySelector(
+      "p"
+    ).textContent =
+      result.performance;
+
+
+    /* =========================
+       ADD HOOKS
+    ========================= */
+
+    let hooksBlock =
+      document.getElementById(
+        "hooksBlock"
+      );
+
+
+    if (!hooksBlock) {
+
+      hooksBlock =
+        document.createElement(
+          "div"
+        );
+
+      hooksBlock.id =
+        "hooksBlock";
+
+      hooksBlock.className =
+        "plan";
+
+
+      hooksBlock.innerHTML = `
+
+        <h3>
+          🎯 Hooks для новых Reels
+        </h3>
+
+        <div id="hooksList"></div>
+
+      `;
+
+
+      const dashboardContainer =
+        document.querySelector(
+          "#dashboard .container"
+        );
+
+
+      if (dashboardContainer) {
+
+        dashboardContainer.appendChild(
+          hooksBlock
+        );
+
+      }
+
+    }
+
+
+    const hooksList =
+      document.getElementById(
+        "hooksList"
+      );
+
+
+    hooksList.innerHTML = "";
+
+
+    result.hooks.forEach(
+      function (hook, index) {
+
+        const item =
+          document.createElement(
+            "div"
+          );
+
+        item.className =
+          "plan-item";
+
+
+        item.innerHTML = `
+
+          <div class="plan-number">
+            ${index + 1}
+          </div>
+
+          <div>
+            ${hook}
+          </div>
+
+        `;
+
+
+        hooksList.appendChild(
+          item
+        );
+
+      }
+    );
+
+
+    /* =========================
+       ADD BUSINESS QUESTION
+    ========================= */
+
+    let businessQuestion =
+      document.getElementById(
+        "businessQuestion"
+      );
+
+
+    if (!businessQuestion) {
+
+      businessQuestion =
+        document.createElement(
+          "div"
+        );
+
+      businessQuestion.id =
+        "businessQuestion";
+
+      businessQuestion.className =
+        "insight problem";
+
+
+      businessQuestion.innerHTML = `
+
+        <h3>
+          💰 Стоит ли платить за SMM?
+        </h3>
+
+        <p></p>
+
+      `;
+
+
+      const dashboardContainer =
+        document.querySelector(
+          "#dashboard .container"
+        );
+
+
+      if (dashboardContainer) {
+
+        dashboardContainer.appendChild(
+          businessQuestion
+        );
+
+      }
+
+    }
+
+
+    businessQuestion.querySelector(
+      "p"
+    ).textContent =
+      "Если SMM оплачивается каждый месяц, по профилю должно быть видно не только ведение страницы, но и бизнес-результат. Сейчас недостаточно очевидно, что контент системно приводит охваты, заявки и клиентов. Поэтому эффективность текущего SMM вызывает вопросы.";
+
+
+    /* =========================
+       RESET BUTTON
+    ========================= */
+
+    button.disabled =
+      false;
+
 
     button.textContent =
       "Запустить AI-анализ →";
 
 
-    /* SCROLL */
+    /* =========================
+       SCROLL
+    ========================= */
 
     document.getElementById(
       "dashboard"
     ).scrollIntoView({
+
       behavior: "smooth"
+
     });
+
 
   }, 2200);
 
 }
+
+
+/* =========================
+   BUTTON CONNECTION
+========================= */
+
+function runAIAudit() {
+
+  runDemoAudit();
+
+}
+
 </script>
