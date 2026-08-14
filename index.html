@@ -1244,10 +1244,6 @@
 
   <script>
 
-    // ИСПРАВЛЕНО: Добавлены кавычки вокруг ключа
-
-const OPENAI_API_KEY = "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";
-
 const insightsInput = document.getElementById("insights");
 const fileName = document.getElementById("fileName");
 
@@ -1264,223 +1260,328 @@ if (insightsInput) {
   });
 }
 
-async function runAIAudit() {
-  const username = document.getElementById("username").value.trim();
-  const niche = document.getElementById("niche").value.trim();
-  const goal = document.getElementById("goal").value;
-  const budget = document.getElementById("budget").value;
+
+/* =========================
+   DEMO AI AUDIT
+========================= */
+
+const auditResults = [
+  {
+    score: 78,
+    title: "Хороший потенциал",
+    description:
+      "Instagram работает стабильно, однако есть несколько точек роста. Основной потенциал находится в Reels, вовлечённости и конверсии просмотров в заявки.",
+    content: 84,
+    reels: 79,
+    reach: 68,
+    engagement: 71,
+    growth: 75,
+    consistency: 91,
+    problem:
+      "Часть контента получает значительно меньше охвата. Reels можно использовать активнее, а CTA сделать более конкретными.",
+    strength:
+      "Хорошая регулярность публикаций, единый визуальный стиль и стабильная активность аудитории.",
+    performance:
+      "SMM работает на хорошем уровне, но пока есть резерв для увеличения охвата и количества целевых действий.",
+    improve:
+      "Усилить первые 2 секунды Reels, добавить больше продающих CTA и чаще повторять форматы, которые уже показали хороший результат.",
+    plan: [
+      "Разобрать 10 лучших публикаций и найти повторяющиеся успешные темы.",
+      "Создать 8–10 Reels с разными hooks.",
+      "Добавить сильный CTA минимум в 70% продающего контента."
+    ]
+  },
+
+  {
+    score: 64,
+    title: "Есть точки роста",
+    description:
+      "Профиль выглядит активным, но маркетинговая эффективность пока ниже возможного уровня. Основная проблема — недостаточная конверсия внимания в действия.",
+    content: 70,
+    reels: 58,
+    reach: 55,
+    engagement: 63,
+    growth: 61,
+    consistency: 82,
+    problem:
+      "Низкий охват части публикаций, слабые hooks в Reels и недостаточно понятные причины для подписки или обращения.",
+    strength:
+      "Контент публикуется достаточно регулярно, а профиль имеет базовую структуру и потенциал для роста.",
+    performance:
+      "SMM требует более чёткой стратегии: необходимо связать контент, охват и коммерческие цели бизнеса.",
+    improve:
+      "Сделать контент более ориентированным на потребности клиента, усилить Reels и добавить больше конкретных предложений.",
+    plan: [
+      "Пересмотреть позиционирование профиля и первые строки BIO.",
+      "Протестировать 12 Reels с разными форматами hooks.",
+      "Создать 3 продающие контентные рубрики."
+    ]
+  },
+
+  {
+    score: 87,
+    title: "Сильный результат",
+    description:
+      "Профиль демонстрирует высокий уровень эффективности. Контент выглядит системным, а основные показатели находятся выше среднего уровня.",
+    content: 92,
+    reels: 89,
+    reach: 84,
+    engagement: 86,
+    growth: 83,
+    consistency: 94,
+    problem:
+      "Главная задача сейчас — не потерять динамику роста. Можно улучшить конверсию уже существующего охвата в заявки и продажи.",
+    strength:
+      "Сильный контент, высокая регулярность, хороший визуальный уровень и понятная коммуникация с аудиторией.",
+    performance:
+      "SMM работает эффективно и уже создаёт хорошую базу для масштабирования.",
+    improve:
+      "Увеличить долю контента, который напрямую приводит к заявкам, и масштабировать лучшие форматы.",
+    plan: [
+      "Определить 5 самых эффективных форматов контента.",
+      "Масштабировать лучшие Reels и повторять успешные hooks.",
+      "Настроить еженедельный контроль охвата, ER и заявок."
+    ]
+  },
+
+  {
+    score: 71,
+    title: "Средний результат",
+    description:
+      "Instagram имеет рабочую основу, но контент пока не полностью раскрывает коммерческий потенциал аккаунта.",
+    content: 76,
+    reels: 69,
+    reach: 62,
+    engagement: 67,
+    growth: 73,
+    consistency: 86,
+    problem:
+      "Контент достаточно регулярный, но не всегда создаёт сильный повод для просмотра, сохранения или обращения.",
+    strength:
+      "Стабильность публикаций и наличие нескольких перспективных форматов.",
+    performance:
+      "SMM находится на среднем уровне. При правильной оптимизации можно заметно увеличить результат без резкого увеличения бюджета.",
+    improve:
+      "Добавить больше экспертного и полезного контента, усилить первые секунды видео и использовать более конкретные CTA.",
+    plan: [
+      "Создать контентные рубрики под разные этапы воронки.",
+      "Публиковать минимум 2–3 Reels в неделю.",
+      "Отслеживать сохранения, отправки и переходы в профиль."
+    ]
+  }
+];
+
+
+/* =========================
+   MAIN FUNCTION
+========================= */
+
+function runDemoAudit() {
+
+  const username =
+    document.getElementById("username").value.trim();
+
+  const niche =
+    document.getElementById("niche").value.trim();
+
+  const goal =
+    document.getElementById("goal").value;
+
+  const budget =
+    document.getElementById("budget").value;
+
+  const files =
+    Array.from(insightsInput.files || []);
 
   if (!username) {
     alert("Введите Instagram username");
     return;
   }
 
-  const button = document.querySelector(".analyze-button");
-  button.disabled = true;
-  button.textContent = "AI анализирует...";
-
-  const prompt = `
-Ты профессиональный AI-аудитор Instagram и SMM.
-Проанализируй бизнес на основе данных пользователя.
-
-Instagram: ${username}
-Ниша: ${niche || "не указана"}
-Главная цель: ${goal || "не указана"}
-Месячный бюджет SMM: ${budget || "не указан"}
-
-На данный момент пользователь предоставляет только общую информацию.
-Если реальных Instagram Insights нет, НЕ выдумывай цифры.
-Сделай полезный предварительный маркетинговый аудит.
-
-Ответ должен содержать:
-1. Общая оценка маркетинга.
-2. Главные возможные проблемы.
-3. Сильные стороны.
-4. Что проверить в Instagram Insights.
-5. Какие показатели наиболее важны.
-6. Что улучшить в контенте.
-7. Что улучшить в Reels.
-8. Что улучшить в продажах и CTA.
-9. План действий на следующие 30 дней.
-
-Пиши понятно, профессионально и конкретно.
-Ответ на русском языке.
-`;
-
-  try {
-    // ИСПРАВЛЕНО: Правильный endpoint для отправки запросов
-    const response = await fetch("https://openai.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + OPENAI_API_KEY
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini", // ИСПРАВЛЕНО: gpt-5 не существует, используем стабильную gpt-4o-mini
-        messages: [
-          {
-            role: "user",
-            content: prompt // ИСПРАВЛЕНО: Правильная структура запроса для чат-моделей
-          }
-        ],
-        temperature: 0.7
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data.error?.message || "Ошибка OpenAI API"
-      );
-    }
-
-    // ИСПРАВЛЕНО: Изменен путь, откуда достается текст ответа OpenAI
-    const answer = data.choices?.[0]?.message?.content || "AI не вернул ответ.";
-
-    document.getElementById("profileName").textContent = username;
-    document.getElementById("dashboard").style.display = "block";
-
-    const scoreInfo = document.querySelector(".score-info p");
-    // Сделаем textContent, но если у вас там Markdown от OpenAI, 
-    // в будущем можно будет подключить библиотеку marked и выводить через innerHTML
-    scoreInfo.textContent = answer; 
-
-    const scoreTitle = document.querySelector(".score-info h3");
-    scoreTitle.textContent = "AI-анализ готов";
-
-    document.getElementById("dashboard").scrollIntoView({
-      behavior: "smooth"
-    });
-
-  } catch (error) {
-    console.error(error);
-    alert("Ошибка AI:\n\n" + error.message);
-  } finally {
-    button.disabled = false;
-    button.textContent = "Запустить AI-анализ →";
-  }
-}
-
-function runDemoAudit() {
-  runAIAudit();
-}
-";
-
-const insightsInput = document.getElementById("insights");
-const fileName = document.getElementById("fileName");
-
-if (insightsInput) {
-  insightsInput.addEventListener("change", function () {
-    const files = Array.from(this.files || []);
-
-    if (!files.length) {
-      fileName.textContent = "";
-      return;
-    }
-
-    fileName.textContent = "✓ Загружено файлов: " + files.length;
-  });
-}
-
-async function runAIAudit() {
-  const username = document.getElementById("username").value.trim();
-  const niche = document.getElementById("niche").value.trim();
-  const goal = document.getElementById("goal").value;
-  const budget = document.getElementById("budget").value;
-
-  if (!username) {
-    alert("Введите Instagram username");
+  if (!niche) {
+    alert("Введите нишу бизнеса");
     return;
   }
 
-  const button = document.querySelector(".analyze-button");
+  if (!files.length) {
+    alert("Загрузите хотя бы один скриншот Instagram Insights");
+    return;
+  }
+
+
+  const button =
+    document.querySelector(".analyze-button");
+
   button.disabled = true;
-  button.textContent = "AI анализирует...";
 
-  const prompt = `
-Ты профессиональный AI-аудитор Instagram и SMM.
-Проанализируй бизнес на основе данных пользователя.
+  /* LOADING */
 
-Instagram: ${username}
-Ниша: ${niche || "не указана"}
-Главная цель: ${goal || "не указана"}
-Месячный бюджет SMM: ${budget || "не указан"}
+  let seconds = 0;
 
-На данный момент пользователь предоставляет только общую информацию.
-Если реальных Instagram Insights нет, НЕ выдумывай цифры.
-Сделай полезный предварительный маркетинговый аудит.
+  button.textContent =
+    "Анализируем Insights... 0%";
 
-Ответ должен содержать:
-1. Общая оценка маркетинга.
-2. Главные возможные проблемы.
-3. Сильные стороны.
-4. Что проверить в Instagram Insights.
-5. Какие показатели наиболее важны.
-6. Что улучшить в контенте.
-7. Что улучшить в Reels.
-8. Что улучшить в продажах и CTA.
-9. План действий на следующие 30 дней.
+  const loadingInterval =
+    setInterval(() => {
 
-Пиши понятно, профессионально и конкретно.
-Ответ на русском языке.
-`;
+      seconds += 10;
 
-  try {
-    // ИСПРАВЛЕНО: Правильный endpoint для отправки запросов
-    const response = await fetch("https://openai.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + OPENAI_API_KEY
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini", // ИСПРАВЛЕНО: gpt-5 не существует, используем стабильную gpt-4o-mini
-        messages: [
-          {
-            role: "user",
-            content: prompt // ИСПРАВЛЕНО: Правильная структура запроса для чат-моделей
-          }
-        ],
-        temperature: 0.7
-      })
+      if (seconds >= 100) {
+        seconds = 100;
+      }
+
+      button.textContent =
+        "AI анализирует... " + seconds + "%";
+
+    }, 180);
+
+
+  /* небольшая задержка, чтобы пользователь увидел процесс */
+
+  setTimeout(() => {
+
+    clearInterval(loadingInterval);
+
+    const result =
+      auditResults[
+        Math.floor(
+          Math.random() * auditResults.length
+        )
+      ];
+
+
+    /* PROFILE */
+
+    document.getElementById("profileName").textContent =
+      "@" + username + " • " + niche;
+
+
+    /* SCORE */
+
+    document.getElementById("score").textContent =
+      result.score;
+
+
+    /* SCORE TITLE */
+
+    document.querySelector(
+      ".score-info h3"
+    ).textContent =
+      result.title;
+
+
+    /* SCORE DESCRIPTION */
+
+    document.querySelector(
+      ".score-info p"
+    ).textContent =
+      result.description;
+
+
+    /* METRICS */
+
+    const metrics =
+      document.querySelectorAll(".metric");
+
+
+    const values = [
+      result.content,
+      result.reels,
+      result.reach,
+      result.engagement,
+      result.growth,
+      result.consistency
+    ];
+
+
+    metrics.forEach((metric, index) => {
+
+      const number =
+        metric.querySelector(".metric-number");
+
+      const bar =
+        metric.querySelector(".progress-bar");
+
+
+      number.textContent =
+        values[index];
+
+
+      bar.style.width =
+        values[index] + "%";
+
     });
 
-    const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(
-        data.error?.message || "Ошибка OpenAI API"
-      );
-    }
+    /* INSIGHTS */
 
-    // ИСПРАВЛЕНО: Изменен путь, откуда достается текст ответа OpenAI
-    const answer = data.choices?.[0]?.message?.content || "AI не вернул ответ.";
+    const insightBoxes =
+      document.querySelectorAll(".insight");
 
-    document.getElementById("profileName").textContent = username;
-    document.getElementById("dashboard").style.display = "block";
 
-    const scoreInfo = document.querySelector(".score-info p");
-    // Сделаем textContent, но если у вас там Markdown от OpenAI, 
-    // в будущем можно будет подключить библиотеку marked и выводить через innerHTML
-    scoreInfo.textContent = answer; 
+    insightBoxes[0].querySelector("p").textContent =
+      result.problem;
 
-    const scoreTitle = document.querySelector(".score-info h3");
-    scoreTitle.textContent = "AI-анализ готов";
 
-    document.getElementById("dashboard").scrollIntoView({
+    insightBoxes[1].querySelector("p").textContent =
+      result.strength;
+
+
+    insightBoxes[2].querySelector("p").textContent =
+      result.performance;
+
+
+    insightBoxes[3].querySelector("p").textContent =
+      result.improve;
+
+
+    /* PLAN */
+
+    const plan =
+      document.querySelector(".plan");
+
+
+    const planItems =
+      plan.querySelectorAll(".plan-item");
+
+
+    result.plan.forEach((text, index) => {
+
+      if (planItems[index]) {
+
+        planItems[index]
+          .querySelector("div:last-child")
+          .textContent = text;
+
+      }
+
+    });
+
+
+    /* SHOW DASHBOARD */
+
+    document.getElementById(
+      "dashboard"
+    ).style.display = "block";
+
+
+    /* RESET BUTTON */
+
+    button.disabled = false;
+
+    button.textContent =
+      "Запустить AI-анализ →";
+
+
+    /* SCROLL */
+
+    document.getElementById(
+      "dashboard"
+    ).scrollIntoView({
       behavior: "smooth"
     });
 
-  } catch (error) {
-    console.error(error);
-    alert("Ошибка AI:\n\n" + error.message);
-  } finally {
-    button.disabled = false;
-    button.textContent = "Запустить AI-анализ →";
-  }
-}
+  }, 2200);
 
-function runDemoAudit() {
-  runAIAudit();
 }
+</script>
