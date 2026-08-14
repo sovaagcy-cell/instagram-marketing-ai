@@ -4,27 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Marketing AI — Instagram Audit</title>
+  <title>SOVA Agency — SMM Audit</title>
 
   <meta
     name="description"
-    content="AI-аудит Instagram для владельцев бизнеса. Узнайте, насколько эффективно работает ваш SMM."
+    content="Независимый аудит Instagram и эффективности SMM для бизнеса."
   />
 
   <style>
     :root {
-      --bg: #f7f5f1;
-      --card: #ffffff;
-      --text: #171717;
-      --muted: #77736d;
-      --border: #e8e4de;
-      --accent: #b51f32;
-      --accent-dark: #8f1727;
-      --soft-red: #f8e8eb;
-      --green: #19734a;
-      --soft-green: #e8f5ee;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.07);
-      --radius: 24px;
+      --bg: #f5f4f1;
+      --white: #ffffff;
+      --black: #111111;
+      --dark: #181818;
+      --muted: #77746f;
+      --border: #e5e3de;
+      --soft: #f0efec;
+      --green: #25845b;
+      --soft-green: #eaf6ef;
+      --red: #9f2434;
+      --soft-red: #f8eaed;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.07);
+      --radius: 26px;
     }
 
     * {
@@ -46,14 +47,14 @@
         Helvetica,
         Arial,
         sans-serif;
-
       background: var(--bg);
-      color: var(--text);
+      color: var(--black);
       line-height: 1.5;
     }
 
     button,
     input,
+    textarea,
     select {
       font: inherit;
     }
@@ -63,14 +64,21 @@
     }
 
     .container {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 36px));
       margin: 0 auto;
     }
 
-    /* NAVIGATION */
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+    }
 
     nav {
-      height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -79,142 +87,170 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 11px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      min-height: 45px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: var(--accent);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 800;
+    .logo img {
+      width: 150px;
+      max-height: 58px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      display: none;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 7px;
     }
 
     .nav-link {
-      color: var(--muted);
+      color: var(--black);
       text-decoration: none;
       font-size: 14px;
+      font-weight: 650;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      padding: 90px 0 75px;
+      padding: 95px 0 90px;
       text-align: center;
     }
 
-    .badge {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--soft-red);
-      color: var(--accent);
       padding: 8px 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 22px;
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      margin-bottom: 25px;
     }
 
-    .badge-dot {
+    .eyebrow-dot {
       width: 7px;
       height: 7px;
-      background: var(--accent);
       border-radius: 50%;
+      background: var(--black);
     }
 
-    h1 {
-      max-width: 850px;
+    .hero h1 {
+      max-width: 900px;
       margin: 0 auto;
-
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -4px;
+      font-size: clamp(45px, 7vw, 82px);
+      line-height: .96;
+      letter-spacing: -5px;
       font-weight: 850;
     }
 
-    h1 span {
-      color: var(--accent);
+    .hero h1 span {
+      color: #77736d;
     }
 
-    .hero-text {
+    .hero-description {
       max-width: 670px;
-      margin: 25px auto 32px;
-
-      font-size: 19px;
+      margin: 28px auto 35px;
       color: var(--muted);
+      font-size: 18px;
     }
 
-    .hero-buttons {
-      display: flex;
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: none;
+      padding: 16px 25px;
       border-radius: 14px;
-      padding: 15px 23px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--text);
+      background: var(--black);
       color: white;
+      text-decoration: none;
+      font-weight: 750;
+      transition: .2s ease;
     }
 
-    .btn-primary:hover {
+    .hero-button:hover {
       transform: translateY(-2px);
       background: #000;
     }
 
-    .btn-secondary {
+    /* =========================
+       TRUST
+    ========================= */
+
+    .trust {
+      padding: 0 0 75px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .trust-item {
       background: white;
       border: 1px solid var(--border);
-      color: var(--text);
+      border-radius: 20px;
+      padding: 23px;
     }
 
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+    .trust-number {
+      font-size: 25px;
+      font-weight: 850;
+      margin-bottom: 5px;
     }
 
-    /* AUDIT CARD */
+    .trust-text {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       AUDIT FORM
+    ========================= */
 
     .audit-section {
-      padding: 20px 0 90px;
+      padding: 20px 0 100px;
     }
 
     .audit-card {
-      background: var(--card);
+      background: white;
       border: 1px solid var(--border);
       border-radius: 30px;
-      padding: 40px;
+      padding: 42px;
       box-shadow: var(--shadow);
     }
 
-    .section-title {
-      font-size: 30px;
-      letter-spacing: -1px;
+    .section-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .audit-card h2 {
+      font-size: 35px;
+      letter-spacing: -1.8px;
       margin-bottom: 8px;
     }
 
-    .section-description {
+    .audit-description {
       color: var(--muted);
-      margin-bottom: 30px;
+      margin-bottom: 32px;
+      max-width: 680px;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
@@ -229,45 +265,77 @@
     }
 
     label {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .required {
+      color: var(--red);
     }
 
     input,
-    select {
+    select,
+    textarea {
       width: 100%;
-      padding: 15px 16px;
-      border: 1px solid var(--border);
+      border: 1px solid #dddcd7;
       border-radius: 13px;
+      padding: 15px 16px;
+      background: white;
+      color: var(--black);
       outline: none;
-      background: #fff;
-      color: var(--text);
-      transition: 0.2s;
+      transition: .2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa7a1;
     }
 
     input:focus,
-    select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(181, 31, 50, 0.08);
+    select:focus,
+    textarea:focus {
+      border-color: #111;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, .045);
     }
 
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .field-note {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       UPLOAD
+    ========================= */
+
     .upload {
-      border: 2px dashed #d9d4cc;
-      border-radius: 18px;
-      padding: 28px;
+      position: relative;
+      border: 1.5px dashed #cfcdc7;
+      border-radius: 19px;
+      padding: 30px;
       text-align: center;
       cursor: pointer;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .upload:hover {
-      border-color: var(--accent);
-      background: #fffafa;
+      border-color: #111;
+      background: #fafafa;
     }
 
     .upload-icon {
-      font-size: 30px;
-      margin-bottom: 8px;
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 12px;
+      border-radius: 13px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
     }
 
     .upload strong {
@@ -284,253 +352,246 @@
     }
 
     .file-name {
-      margin-top: 12px;
+      margin-top: 10px;
       color: var(--green);
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 750;
     }
 
-    .analyze-button {
+    /* =========================
+       SUBMIT
+    ========================= */
+
+    .submit-button {
       width: 100%;
       margin-top: 25px;
-      padding: 18px;
-      border: none;
+      border: 0;
       border-radius: 15px;
-      background: var(--accent);
+      background: var(--black);
       color: white;
+      padding: 18px;
+      font-size: 16px;
       font-weight: 800;
-      font-size: 17px;
-      transition: 0.2s;
+      transition: .2s;
     }
 
-    .analyze-button:hover {
-      background: var(--accent-dark);
+    .submit-button:hover {
       transform: translateY(-1px);
+      background: #000;
     }
 
-    /* DASHBOARD */
-
-    #dashboard {
-      display: none;
-      padding: 0 0 100px;
+    .submit-button:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
     }
 
-    .dashboard-header {
-      margin-bottom: 25px;
-    }
-
-    .dashboard-header h2 {
-      font-size: 38px;
-      letter-spacing: -1.5px;
-    }
-
-    .dashboard-header p {
+    .privacy-note {
+      text-align: center;
       color: var(--muted);
+      font-size: 11px;
+      margin-top: 12px;
     }
 
-    .score-card {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 35px;
-      background: #171717;
-      color: white;
-      border-radius: 28px;
-      padding: 35px;
-      margin-bottom: 20px;
+    /* =========================
+       LOADING SCREEN
+    ========================= */
+
+    #loadingScreen {
+      display: none;
+      padding: 30px 0 110px;
     }
 
-    .score-circle {
-      width: 190px;
-      height: 190px;
+    .loading-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 65px 35px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 25px;
+      border: 4px solid #e5e3df;
+      border-top-color: #111;
       border-radius: 50%;
-      border: 14px solid #3c3c3c;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
+      animation: spin 1s linear infinite;
     }
 
-    .score-number {
-      font-size: 58px;
-      font-weight: 850;
-      line-height: 1;
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    .score-label {
-      color: #aaa;
-      margin-top: 5px;
-      font-size: 13px;
-    }
-
-    .score-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .score-info h3 {
-      font-size: 28px;
+    .loading-card h2 {
+      font-size: 34px;
+      letter-spacing: -1.5px;
       margin-bottom: 10px;
     }
 
-    .score-info p {
-      color: #bdbdbd;
-      max-width: 580px;
+    .loading-card p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
     }
 
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .metric {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .metric-top {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-    }
-
-    .metric-name {
-      font-weight: 700;
-    }
-
-    .metric-number {
-      font-weight: 800;
-    }
-
-    .progress {
-      height: 8px;
-      background: #eeeae4;
+    .progress-wrapper {
+      max-width: 520px;
+      margin: 30px auto 10px;
+      height: 7px;
+      background: #eceae6;
       border-radius: 20px;
       overflow: hidden;
     }
 
-    .progress-bar {
+    .progress-line {
       height: 100%;
-      width: 70%;
-      background: var(--accent);
+      width: 0%;
+      background: #111;
       border-radius: inherit;
+      transition: width .3s ease;
     }
 
-    .insight-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    .progress-text {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
-    .insight {
+    /* =========================
+       SUCCESS
+    ========================= */
+
+    #successScreen {
+      display: none;
+      padding: 30px 0 110px;
+    }
+
+    .success-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 25px;
+      border-radius: 30px;
+      padding: 60px 35px;
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .insight h3 {
-      margin-bottom: 12px;
-      font-size: 20px;
+    .success-icon {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: var(--soft-green);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 29px;
+      font-weight: 900;
     }
 
-    .insight p {
+    .success-card h2 {
+      font-size: 38px;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .success-card p {
+      max-width: 620px;
+      margin: 10px auto;
       color: var(--muted);
     }
 
-    .problem {
-      background: #fff3f4;
-      border-color: #f2d5d9;
+    .email-box {
+      display: inline-block;
+      margin: 17px 0;
+      padding: 11px 17px;
+      border-radius: 11px;
+      background: var(--soft);
+      font-weight: 750;
     }
 
-    .strength {
-      background: #f0faf5;
-      border-color: #d3ebde;
+    .timer-label {
+      margin-top: 25px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
     }
 
-    .plan {
-      margin-top: 20px;
+    .timer {
+      margin-top: 4px;
+      font-size: 48px;
+      font-weight: 850;
+      letter-spacing: -2px;
+    }
+
+    .success-note {
+      font-size: 13px !important;
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .how {
+      padding: 0 0 110px;
+    }
+
+    .how-title {
+      text-align: center;
+      font-size: 42px;
+      letter-spacing: -2px;
+      margin-bottom: 38px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .step {
       background: white;
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 28px;
     }
 
-    .plan-item {
-      display: flex;
-      gap: 15px;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .plan-item:last-child {
-      border-bottom: none;
-    }
-
-    .plan-number {
-      width: 32px;
-      height: 32px;
+    .step-number {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: var(--soft-red);
-      color: var(--accent);
+      background: #111;
+      color: white;
       display: grid;
       place-items: center;
       font-weight: 800;
-      flex-shrink: 0;
+      margin-bottom: 20px;
     }
 
-    /* FEATURES */
-
-    .features {
-      padding: 40px 0 100px;
-    }
-
-    .features h2 {
-      font-size: 40px;
-      letter-spacing: -1.5px;
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 27px;
-    }
-
-    .feature-icon {
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
-
-    .feature h3 {
+    .step h3 {
       margin-bottom: 8px;
+      font-size: 19px;
     }
 
-    .feature p {
+    .step p {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       border-top: 1px solid var(--border);
       padding: 30px 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .footer-inner {
@@ -539,28 +600,43 @@
       gap: 20px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 800px) {
+
       .container {
-        width: min(100% - 28px, 1180px);
+        width: min(100% - 28px, 1120px);
+      }
+
+      header {
+        height: 72px;
+      }
+
+      .logo img {
+        width: 125px;
       }
 
       .hero {
-        padding: 65px 0 50px;
+        padding: 70px 0 65px;
       }
 
-      h1 {
-        letter-spacing: -2px;
+      .hero h1 {
+        letter-spacing: -3px;
       }
 
-      .hero-text {
-        font-size: 17px;
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
       }
 
       .audit-card {
-        padding: 24px;
-        border-radius: 22px;
+        padding: 25px;
+        border-radius: 23px;
       }
 
       .form-grid {
@@ -571,21 +647,12 @@
         grid-column: auto;
       }
 
-      .score-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .metric-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .insight-grid {
+      .steps {
         grid-template-columns: 1fr;
       }
 
-      .feature-grid {
-        grid-template-columns: 1fr;
+      .how-title {
+        font-size: 34px;
       }
 
       .footer-inner {
@@ -594,21 +661,30 @@
     }
 
     @media (max-width: 480px) {
-      .metric-grid {
-        grid-template-columns: 1fr;
+
+      .hero h1 {
+        font-size: 44px;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
+      .hero-button {
         width: 100%;
       }
 
-      .score-circle {
-        width: 160px;
-        height: 160px;
+      .audit-card h2 {
+        font-size: 29px;
+      }
+
+      .loading-card,
+      .success-card {
+        padding: 45px 22px;
+      }
+
+      .success-card h2 {
+        font-size: 31px;
+      }
+
+      .timer {
+        font-size: 42px;
       }
     }
   </style>
@@ -616,57 +692,148 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <header>
+
     <div class="container">
+
       <nav>
+
         <div class="logo">
-          <div class="logo-mark">M</div>
-          Marketing AI
+
+          <!--
+            Положи свой логотип рядом с index.html
+            и назови его logo.png
+          -->
+
+          <img
+            src="logo.png"
+            alt="SOVA Agency"
+            onerror="
+              this.style.display='none';
+              document.querySelector('.logo-text').style.display='block';
+            "
+          >
+
+          <div class="logo-text">
+            SOVA
+          </div>
+
         </div>
 
-        <a href="#audit" class="nav-link">
-          Проверить Instagram →
+        <a
+          href="#audit"
+          class="nav-link"
+        >
+          Получить аудит →
         </a>
+
       </nav>
+
     </div>
+
   </header>
 
 
-  <!-- HERO -->
-
   <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
       <div class="container">
 
-        <div class="badge">
-          <span class="badge-dot"></span>
-          AI Marketing Auditor
+        <div class="eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          SOVA AGENCY · SMM AUDIT
+
         </div>
 
         <h1>
-          Узнайте, насколько
-          <span>эффективно</span>
-          работает ваш SMM
+
+          Ваш SMM действительно
+          <span>приносит результат?</span>
+
         </h1>
 
-        <p class="hero-text">
-          Marketing AI анализирует Instagram и показывает,
-          что работает, где проблемы и что нужно изменить,
-          чтобы маркетинг приносил больше результата.
+        <p class="hero-description">
+
+          Мы самостоятельно анализируем ваш Instagram,
+          контент и работу SMM, чтобы показать,
+          что действительно работает, а что забирает бюджет.
+
         </p>
 
-        <div class="hero-buttons">
-          <a href="#audit" class="btn btn-primary">
-            Проверить Instagram
-          </a>
+        <a
+          href="#audit"
+          class="hero-button"
+        >
+          Получить независимый аудит →
+        </a>
 
-          <a href="#features" class="btn btn-secondary">
-            Как это работает
-          </a>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST
+    ========================== -->
+
+    <section class="trust">
+
+      <div class="container">
+
+        <div class="trust-grid">
+
+          <div class="trust-item">
+
+            <div class="trust-number">
+              01
+            </div>
+
+            <div class="trust-text">
+              Анализируем сам Instagram,
+              а не только цифры.
+            </div>
+
+          </div>
+
+
+          <div class="trust-item">
+
+            <div class="trust-number">
+              02
+            </div>
+
+            <div class="trust-text">
+              Проверяем контент,
+              Reels и коммерческую подачу.
+            </div>
+
+          </div>
+
+
+          <div class="trust-item">
+
+            <div class="trust-number">
+              03
+            </div>
+
+            <div class="trust-text">
+              Сопоставляем SMM-расходы
+              с результатом бизнеса.
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -674,464 +841,281 @@
     </section>
 
 
-    <!-- AUDIT -->
+    <!-- =========================
+         FORM
+    ========================== -->
 
-    <section class="audit-section" id="audit">
+    <section
+      class="audit-section"
+      id="audit"
+    >
 
       <div class="container">
 
         <div class="audit-card">
 
-          <h2 class="section-title">
-            Начните аудит
-          </h2>
-
-          <p class="section-description">
-            Заполните информацию о бизнесе и загрузите
-            Instagram Insights. Позже здесь будет подключён
-            настоящий AI-анализ.
-          </p>
-
-          <div class="form-grid">
-
-            <div class="form-group">
-
-              <label for="username">
-                Instagram username
-              </label>
-
-              <input
-                id="username"
-                type="text"
-                placeholder="@yourbusiness"
-              />
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="niche">
-                Ниша бизнеса
-              </label>
-
-              <input
-                id="niche"
-                type="text"
-                placeholder="Beauty, Restaurant, Fashion..."
-              />
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="goal">
-                Главная цель
-              </label>
-
-              <select id="goal">
-
-                <option value="sales">
-                  Продажи
-                </option>
-
-                <option value="leads">
-                  Заявки
-                </option>
-
-                <option value="followers">
-                  Рост подписчиков
-                </option>
-
-                <option value="brand">
-                  Узнаваемость бренда
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="budget">
-                Месячный бюджет SMM
-              </label>
-
-              <input
-                id="budget"
-                type="number"
-                placeholder="Например: 800"
-              />
-
-            </div>
-
-
-            <div class="form-group full">
-
-              <label>
-                Instagram Insights
-              </label>
-
-              <label class="upload">
-
-                <div class="upload-icon">
-                  ↑
-                </div>
-
-                <strong>
-                  Загрузите скриншоты Insights
-                </strong>
-
-                <small>
-                  PNG, JPG или WEBP
-                </small>
-
-                <input
-                  id="insights"
-                  type="file"
-                  accept="image/png,image/jpeg,image/webp"
-                  multiple
-                />
-
-                <div
-                  id="fileName"
-                  class="file-name"
-                ></div>
-
-              </label>
-
-            </div>
-
+          <div class="section-label">
+            Independent audit
           </div>
-
-
-          <button
-            class="analyze-button"
-            onclick="runDemoAudit()"
-          >
-            Запустить AI-анализ →
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DASHBOARD -->
-
-    <section id="dashboard">
-
-      <div class="container">
-
-        <div class="dashboard-header">
 
           <h2>
-            Marketing Report
+            Получите анализ вашего SMM
           </h2>
 
-          <p id="profileName">
-            Instagram profile
+          <p class="audit-description">
+
+            Вам не нужно самостоятельно искать сложные
+            показатели Instagram. Оставьте основную информацию,
+            а мы изучим профиль и подготовим персональный вывод.
+
           </p>
 
-        </div>
+
+          <form id="auditForm">
+
+            <div class="form-grid">
 
 
-        <div class="score-card">
+              <!-- INSTAGRAM -->
 
-          <div>
+              <div class="form-group">
 
-            <div class="score-circle">
+                <label for="username">
+                  Instagram <span class="required">*</span>
+                </label>
 
-              <div
-                class="score-number"
-                id="score"
-              >
-                74
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="@yourbusiness"
+                  required
+                >
+
               </div>
 
-              <div class="score-label">
-                из 100
+
+              <!-- EMAIL -->
+
+              <div class="form-group">
+
+                <label for="email">
+                  Ваш Email <span class="required">*</span>
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                >
+
               </div>
 
+
+              <!-- NICHE -->
+
+              <div class="form-group">
+
+                <label for="niche">
+                  Ниша бизнеса <span class="required">*</span>
+                </label>
+
+                <input
+                  id="niche"
+                  type="text"
+                  placeholder="Beauty, Restaurant, Clinic..."
+                  required
+                >
+
+              </div>
+
+
+              <!-- SMM -->
+
+              <div class="form-group">
+
+                <label for="smmBudget">
+                  Сколько платите за SMM в месяц?
+                </label>
+
+                <input
+                  id="smmBudget"
+                  type="number"
+                  min="0"
+                  placeholder="Например: 500"
+                >
+
+              </div>
+
+
+              <!-- CLIENTS -->
+
+              <div class="form-group">
+
+                <label for="clients">
+                  Клиенты из Instagram в месяц
+                </label>
+
+                <input
+                  id="clients"
+                  type="number"
+                  min="0"
+                  placeholder="Например: 15"
+                >
+
+                <div class="field-note">
+                  Примерное количество клиентов.
+                </div>
+
+              </div>
+
+
+              <!-- AVERAGE CHECK -->
+
+              <div class="form-group">
+
+                <label for="averageCheck">
+                  Средний чек клиента
+                </label>
+
+                <input
+                  id="averageCheck"
+                  type="number"
+                  min="0"
+                  placeholder="Например: 120"
+                >
+
+              </div>
+
+
+              <!-- COMMENT -->
+
+              <div class="form-group full">
+
+                <label for="comment">
+                  Что вас сейчас беспокоит?
+                </label>
+
+                <textarea
+                  id="comment"
+                  placeholder="Например: SMM ведётся регулярно, но клиентов почти нет..."
+                ></textarea>
+
+              </div>
+
+
+              <!-- INSIGHTS -->
+
+              <div class="form-group full">
+
+                <label>
+                  Instagram Insights
+                  <span
+                    style="
+                      color:#999;
+                      font-weight:400;
+                    "
+                  >
+                    — необязательно
+                  </span>
+                </label>
+
+                <label
+                  class="upload"
+                  for="insights"
+                >
+
+                  <div class="upload-icon">
+                    ↑
+                  </div>
+
+                  <strong>
+                    Загрузить скриншоты Insights
+                  </strong>
+
+                  <small>
+                    PNG, JPG или WEBP · можно несколько
+                  </small>
+
+                  <input
+                    id="insights"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    multiple
+                  >
+
+                  <div
+                    id="fileName"
+                    class="file-name"
+                  ></div>
+
+                </label>
+
+              </div>
+
+
             </div>
 
-          </div>
 
+            <button
+              type="submit"
+              class="submit-button"
+              id="submitButton"
+            >
+              Получить независимый аудит →
+            </button>
 
-          <div class="score-info">
+            <div class="privacy-note">
+              Ваши данные используются только для подготовки аудита.
+            </div>
 
-            <h3>
-              Нужно улучшение
-            </h3>
-
-            <p>
-              Профиль имеет хороший потенциал,
-              но часть контента работает значительно
-              слабее остальных публикаций.
-            </p>
-
-          </div>
+          </form>
 
         </div>
 
+      </div>
 
-        <!-- METRICS -->
-
-        <div class="metric-grid">
-
-          <div class="metric">
-
-            <div class="metric-top">
-              <span class="metric-name">
-                Content
-              </span>
-
-              <span class="metric-number">
-                82
-              </span>
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:82%"
-              ></div>
-            </div>
-
-          </div>
+    </section>
 
 
-          <div class="metric">
+    <!-- =========================
+         LOADING
+    ========================== -->
 
-            <div class="metric-top">
-              <span class="metric-name">
-                Reels
-              </span>
+    <section id="loadingScreen">
 
-              <span class="metric-number">
-                76
-              </span>
-            </div>
+      <div class="container">
 
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:76%"
-              ></div>
-            </div>
+        <div class="loading-card">
+
+          <div class="loader"></div>
+
+          <h2>
+            Заявка принята
+          </h2>
+
+          <p id="loadingText">
+
+            Проверяем предоставленные данные
+            и формируем ваш персональный аудит.
+
+          </p>
+
+
+          <div class="progress-wrapper">
+
+            <div
+              class="progress-line"
+              id="progressLine"
+            ></div>
 
           </div>
 
-
-          <div class="metric">
-
-            <div class="metric-top">
-              <span class="metric-name">
-                Reach
-              </span>
-
-              <span class="metric-number">
-                61
-              </span>
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:61%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="metric">
-
-            <div class="metric-top">
-              <span class="metric-name">
-                Engagement
-              </span>
-
-              <span class="metric-number">
-                69
-              </span>
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:69%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="metric">
-
-            <div class="metric-top">
-              <span class="metric-name">
-                Growth
-              </span>
-
-              <span class="metric-number">
-                72
-              </span>
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:72%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="metric">
-
-            <div class="metric-top">
-              <span class="metric-name">
-                Consistency
-              </span>
-
-              <span class="metric-number">
-                88
-              </span>
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:88%"
-              ></div>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- INSIGHTS -->
-
-        <div class="insight-grid">
-
-          <div class="insight problem">
-
-            <h3>
-              🔴 Главные проблемы
-            </h3>
-
-            <p>
-              Недостаточно сильных Reels,
-              низкая вовлечённость части аудитории
-              и слабая конверсия просмотров
-              в действия.
-            </p>
-
-          </div>
-
-
-          <div class="insight strength">
-
-            <h3>
-              🟢 Сильные стороны
-            </h3>
-
-            <p>
-              Хорошая регулярность публикаций,
-              стабильный визуальный стиль
-              и несколько форматов контента
-              показывают высокий потенциал.
-            </p>
-
-          </div>
-
-
-          <div class="insight">
-
-            <h3>
-              👨‍💼 SMM Performance
-            </h3>
-
-            <p>
-              На основе предоставленных данных
-              можно проверить выполнение контент-плана,
-              регулярность публикаций и KPI.
-            </p>
-
-          </div>
-
-
-          <div class="insight">
-
-            <h3>
-              📈 Что изменить
-            </h3>
-
-            <p>
-              Увеличить долю сильных Reels,
-              протестировать новые hooks и CTA,
-              а также регулярно сравнивать
-              результаты контента.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- PLAN -->
-
-        <div class="plan">
-
-          <h3>
-            📅 План на следующие 30 дней
-          </h3>
-
-          <div class="plan-item">
-
-            <div class="plan-number">
-              1
-            </div>
-
-            <div>
-              Проанализировать 10 лучших публикаций
-              и определить повторяющиеся темы.
-            </div>
-
-          </div>
-
-
-          <div class="plan-item">
-
-            <div class="plan-number">
-              2
-            </div>
-
-            <div>
-              Создать минимум 8 новых Reels
-              на основе лучших форматов.
-            </div>
-
-          </div>
-
-
-          <div class="plan-item">
-
-            <div class="plan-number">
-              3
-            </div>
-
-            <div>
-              Сравнивать охват и вовлечённость
-              каждую неделю.
-            </div>
+          <div
+            class="progress-text"
+            id="progressText"
+          >
+            Подготавливаем анализ · 0%
 
           </div>
 
@@ -1142,73 +1126,142 @@
     </section>
 
 
-    <!-- FEATURES -->
+    <!-- =========================
+         SUCCESS
+    ========================== -->
 
-    <section class="features" id="features">
+    <section id="successScreen">
 
       <div class="container">
 
-        <h2>
-          Что проверяет Marketing AI
+        <div class="success-card">
+
+          <div class="success-icon">
+            ✓
+          </div>
+
+          <h2>
+            Аудит принят
+          </h2>
+
+          <p>
+            Ваш запрос передан специалисту SOVA.
+            Мы самостоятельно изучим ваш Instagram
+            и подготовим персональный анализ.
+          </p>
+
+
+          <div
+            class="email-box"
+            id="successEmail"
+          >
+            your@email.com
+          </div>
+
+
+          <p>
+            Готовый результат будет отправлен
+            на указанный email.
+          </p>
+
+
+          <div class="timer-label">
+            Ориентировочное время подготовки
+          </div>
+
+          <div
+            class="timer"
+            id="timer"
+          >
+            15:00
+          </div>
+
+
+          <p class="success-note">
+
+            Пока мы проводим анализ, вам ничего
+            не нужно делать. Проверьте почту
+            после получения отчёта.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
+    <section class="how">
+
+      <div class="container">
+
+        <h2 class="how-title">
+          Как проходит аудит
         </h2>
 
-        <div class="feature-grid">
 
-          <div class="feature">
+        <div class="steps">
 
-            <div class="feature-icon">
-              📊
+
+          <div class="step">
+
+            <div class="step-number">
+              01
             </div>
 
             <h3>
-              Результаты
+              Оставьте Instagram
             </h3>
 
             <p>
-              Анализ охватов, просмотров,
-              вовлечённости, роста и других
-              доступных показателей.
+              Укажите профиль и несколько
+              простых показателей бизнеса.
             </p>
 
           </div>
 
 
-          <div class="feature">
+          <div class="step">
 
-            <div class="feature-icon">
-              🎬
+            <div class="step-number">
+              02
             </div>
 
             <h3>
-              Reels
+              Мы проверяем SMM
             </h3>
 
             <p>
-              Определяем, какие форматы
-              работают лучше и какие
-              требуют изменений.
+              Изучаем профиль, контент, Reels,
+              позиционирование и коммерческую подачу.
             </p>
 
           </div>
 
 
-          <div class="feature">
+          <div class="step">
 
-            <div class="feature-icon">
-              👨‍💼
+            <div class="step-number">
+              03
             </div>
 
             <h3>
-              Работа SMM
+              Получите вывод
             </h3>
 
             <p>
-              Сравниваем фактические результаты
-              с поставленными владельцем бизнеса
-              задачами и KPI.
+              Вы получите понятный ответ:
+              что работает, что не работает
+              и что необходимо изменить.
             </p>
 
           </div>
+
 
         </div>
 
@@ -1219,7 +1272,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer>
 
@@ -1228,11 +1283,11 @@
       <div class="footer-inner">
 
         <div>
-          © 2026 Marketing AI
+          © 2026 SOVA Agency
         </div>
 
         <div>
-          Независимый контроль вашего SMM
+          Independent SMM Audit
         </div>
 
       </div>
@@ -1244,682 +1299,184 @@
 
   <script>
 
+    /* =========================
+       ELEMENTS
+    ========================== */
 
+    const form =
+      document.getElementById("auditForm");
 
-const insightsInput = document.getElementById("insights");
-const fileName = document.getElementById("fileName");
+    const insights =
+      document.getElementById("insights");
 
+    const fileName =
+      document.getElementById("fileName");
 
-/* =========================
-   FILE UPLOAD
-========================= */
+    const submitButton =
+      document.getElementById("submitButton");
 
-if (insightsInput) {
+    const auditSection =
+      document.getElementById("audit");
 
-  insightsInput.addEventListener("change", function () {
+    const loadingScreen =
+      document.getElementById("loadingScreen");
 
-    const files = Array.from(this.files || []);
+    const successScreen =
+      document.getElementById("successScreen");
 
-    if (!files.length) {
-      fileName.textContent = "";
-      return;
-    }
+    const progressLine =
+      document.getElementById("progressLine");
 
-    fileName.textContent =
-      "✓ Загружено файлов: " + files.length;
+    const progressText =
+      document.getElementById("progressText");
 
-  });
+    const loadingText =
+      document.getElementById("loadingText");
 
-}
+    const timer =
+      document.getElementById("timer");
 
-
-/* =========================
-   MARKETING AI AUDIT RESULTS
-========================= */
-
-const auditResults = [
-
-  {
-    score: 39,
-
-    title: "SMM требует серьёзного улучшения",
-
-    description:
-      "Аккаунт выглядит красиво и премиально, но пока слабо работает как инструмент привлечения клиентов. Основная проблема находится не в визуале, а в SMM-стратегии, продающем контенте и отсутствии очевидной связи между контентом и бизнес-результатом.",
-
-    content: 52,
-    reels: 34,
-    reach: 31,
-    engagement: 36,
-    growth: 35,
-    consistency: 61,
-
-    problem:
-      "Самое слабое место — SMM. В аккаунте много красивой подачи услуг, но недостаточно сильных Reels, Before/After, отзывов, экспертного контента, hooks и публикаций, которые мотивируют клиента обратиться.",
-
-    strength:
-      "Визуальная часть — сильная сторона. Аккаунт выглядит аккуратно, эстетично и премиально. Есть широкий спектр услуг и хорошая база для построения сильного beauty-бренда.",
-
-    performance:
-      "Если бизнес ежемесячно оплачивает SMM, по аккаунту сложно увидеть достаточную ценность этой работы. Видно, что страницу ведут, но не видно понятной системы: стратегия → контент → охваты → заявки → клиенты. Поэтому возникает вопрос: за какой конкретный результат бизнес платит SMM каждый месяц?",
-
-    improve:
-      "Необходимо перестроить SMM вокруг результата: сильные Reels, hooks, Before/After, реальные отзывы, экспертные видео, лица специалистов, проблемы клиентов и конкретные CTA на запись.",
-
-    hooks: [
-
-      "Почему эта процедура не работает у большинства?",
-
-      "Результат после 1 процедуры — смотрите Before/After",
-
-      "3 ошибки, из-за которых вы теряете деньги на уходе за кожей",
-
-      "Вот почему ваш Instagram не приводит клиентов",
-
-      "Что происходит с кожей после этой процедуры?",
-
-      "Стоит ли платить за эту процедуру? Показываем реальный результат"
-
-    ],
-
-    plan: [
-
-      "Перестроить контент-стратегию вокруг привлечения клиентов, а не только красивой ленты.",
-
-      "Создать серию продающих Reels по схеме: проблема → решение → процедура → результат → CTA.",
-
-      "Регулярно показывать реальные Before/After, отзывы клиентов и результаты процедур.",
-
-      "Добавить больше экспертного контента, специалистов и живого общения с аудиторией.",
-
-      "Каждую неделю анализировать охваты, сохранения, переходы в профиль, Direct и реальные записи."
-
-    ]
-
-  },
-
-
-  {
-    score: 46,
-
-    title: "Низкая эффективность SMM",
-
-    description:
-      "Профиль имеет хороший визуальный потенциал, однако контент недостаточно активно превращает внимание аудитории в действия и записи.",
-
-    content: 57,
-    reels: 41,
-    reach: 39,
-    engagement: 43,
-    growth: 44,
-    consistency: 65,
-
-    problem:
-      "Основная проблема — слишком много демонстрации услуг и недостаточно контента, который раскрывает проблемы клиентов, показывает реальные результаты и приводит к записи.",
-
-    strength:
-      "Аккаунт визуально выглядит профессионально и имеет хороший ассортимент процедур.",
-
-    performance:
-      "SMM присутствует, но его бизнес-эффект недостаточно очевиден. Не видно чёткой системы KPI и связи между публикациями и количеством заявок.",
-
-    improve:
-      "Усилить Reels, добавить Before/After, отзывы, экспертность и более сильные CTA.",
-
-    hooks: [
-
-      "5 причин, почему ваша кожа выглядит уставшей",
-
-      "До/После: результат клиента без фильтров",
-
-      "Что выбрать, если вас беспокоит именно эта проблема?",
-
-      "Ошибка, которую совершают почти все наши клиенты",
-
-      "Можно ли получить результат уже после первой процедуры?"
-
-    ],
-
-    plan: [
-
-      "Создать контентные рубрики под основные проблемы клиентов.",
-
-      "Публиковать больше Reels с сильным первым кадром.",
-
-      "Показывать реальные результаты клиентов.",
-
-      "Добавить больше видеоотзывов.",
-
-      "Отслеживать не только лайки, но и заявки и записи."
-
-    ]
-
-  },
-
-
-  {
-    score: 62,
-
-    title: "Есть потенциал для роста",
-
-    description:
-      "Аккаунт имеет хорошую основу, однако маркетинговая стратегия пока раскрыта не полностью.",
-
-    content: 69,
-    reels: 58,
-    reach: 54,
-    engagement: 57,
-    growth: 61,
-    consistency: 76,
-
-    problem:
-      "Контент выглядит хорошо, но часть публикаций не создаёт достаточно сильного повода для просмотра, сохранения или обращения.",
-
-    strength:
-      "Хорошая визуальная база, регулярность и широкий выбор услуг.",
-
-    performance:
-      "SMM можно сделать значительно эффективнее за счёт более чёткой стратегии и измерения коммерческих результатов.",
-
-    improve:
-      "Увеличить долю Reels, экспертного контента, отзывов и публикаций с конкретным предложением.",
-
-    hooks: [
-
-      "Почему наши клиенты возвращаются снова?",
-
-      "Результат, который говорит сам за себя",
-
-      "Что изменится после этой процедуры?",
-
-      "3 вещи, которые нужно знать перед процедурой",
-
-      "Реальный результат нашего клиента"
-
-    ],
-
-    plan: [
-
-      "Определить лучшие темы и форматы контента.",
-
-      "Увеличить количество Reels.",
-
-      "Добавить больше Before/After.",
-
-      "Создать серию экспертных видео.",
-
-      "Отслеживать заявки и записи из Instagram."
-
-    ]
-
-  }
-
-];
-
-
-/* =========================
-   MAIN AUDIT
-========================= */
-
-function runDemoAudit() {
-
-  const username =
-    document.getElementById("username").value.trim();
-
-  const niche =
-    document.getElementById("niche").value.trim();
-
-  const goal =
-    document.getElementById("goal").value;
-
-  const budget =
-    document.getElementById("budget").value;
-
-  const files =
-    Array.from(insightsInput.files || []);
-
-
-  /* VALIDATION */
-
-  if (!username) {
-
-    alert("Введите Instagram username");
-
-    return;
-
-  }
-
-
-  if (!niche) {
-
-    alert("Введите нишу бизнеса");
-
-    return;
-
-  }
-
-
-  if (!files.length) {
-
-    alert(
-      "Загрузите хотя бы один скриншот Instagram Insights"
-    );
-
-    return;
-
-  }
-
-
-  /* BUTTON */
-
-  const button =
-    document.querySelector(".analyze-button");
-
-  button.disabled = true;
-
-
-  /* LOADING */
-
-  let progress = 0;
-
-  button.textContent =
-    "Анализируем Insights... 0%";
-
-
-  const loadingInterval =
-    setInterval(function () {
-
-      progress += 10;
-
-      if (progress >= 100) {
-
-        progress = 100;
-
-      }
-
-      button.textContent =
-        "AI анализирует... " + progress + "%";
-
-    }, 180);
-
-
-  /* ANALYSIS DELAY */
-
-  setTimeout(function () {
-
-    clearInterval(loadingInterval);
-
-
-    /*
-      Для демо выбирается один из вариантов.
-      Beauty Larnaca получает первый вариант —
-      39/100.
-    */
-
-    let result;
-
-
-    const normalizedUsername =
-      username
-        .toLowerCase()
-        .replace("@", "")
-        .trim();
-
-
-    /*
-      Если пользователь тестирует Beauty Larnaca,
-      показываем специально подготовленный аудит.
-    */
-
-    if (
-      normalizedUsername.includes("beauty") ||
-      normalizedUsername.includes("larnaca")
-    ) {
-
-      result =
-        auditResults[0];
-
-    } else {
-
-      /*
-        Для других аккаунтов
-        выбираем другой результат.
-      */
-
-      result =
-        auditResults[
-          Math.floor(
-            Math.random() * auditResults.length
-          )
-        ];
-
-    }
+    const successEmail =
+      document.getElementById("successEmail");
 
 
     /* =========================
-       PROFILE
-    ========================= */
+       FILE UPLOAD
+    ========================== */
 
-    document.getElementById(
-      "profileName"
-    ).textContent =
-      "@" + username + " • " + niche;
+    insights.addEventListener(
+      "change",
+      function () {
 
-
-    /* =========================
-       SCORE
-    ========================= */
-
-    document.getElementById(
-      "score"
-    ).textContent =
-      result.score;
-
-
-    /* =========================
-       SCORE TITLE
-    ========================= */
-
-    document.querySelector(
-      ".score-info h3"
-    ).textContent =
-      result.title;
-
-
-    /* =========================
-       SCORE DESCRIPTION
-    ========================= */
-
-    document.querySelector(
-      ".score-info p"
-    ).textContent =
-      result.description;
-
-
-    /* =========================
-       METRICS
-    ========================= */
-
-    const metrics =
-      document.querySelectorAll(".metric");
-
-
-    const values = [
-
-      result.content,
-
-      result.reels,
-
-      result.reach,
-
-      result.engagement,
-
-      result.growth,
-
-      result.consistency
-
-    ];
-
-
-    metrics.forEach(
-      function (metric, index) {
-
-        const number =
-          metric.querySelector(
-            ".metric-number"
+        const files =
+          Array.from(
+            this.files || []
           );
 
-        const bar =
-          metric.querySelector(
-            ".progress-bar"
-          );
+        if (!files.length) {
 
+          fileName.textContent = "";
 
-        number.textContent =
-          values[index];
-
-
-        bar.style.width =
-          values[index] + "%";
-
-      }
-    );
-
-
-    /* =========================
-       INSIGHTS
-    ========================= */
-
-    const insightBoxes =
-      document.querySelectorAll(
-        ".insight"
-      );
-
-
-    if (insightBoxes[0]) {
-
-      insightBoxes[0]
-        .querySelector("p")
-        .textContent =
-        result.problem;
-
-    }
-
-
-    if (insightBoxes[1]) {
-
-      insightBoxes[1]
-        .querySelector("p")
-        .textContent =
-        result.strength;
-
-    }
-
-
-    if (insightBoxes[2]) {
-
-      insightBoxes[2]
-        .querySelector("p")
-        .textContent =
-        result.performance;
-
-    }
-
-
-    if (insightBoxes[3]) {
-
-      insightBoxes[3]
-        .querySelector("p")
-        .textContent =
-        result.improve;
-
-    }
-
-
-    /* =========================
-       PLAN
-    ========================= */
-
-    const planItems =
-      document.querySelectorAll(
-        ".plan-item"
-      );
-
-
-    result.plan.forEach(
-      function (text, index) {
-
-        if (planItems[index]) {
-
-          planItems[index]
-            .querySelector(
-              "div:last-child"
-            )
-            .textContent =
-            text;
+          return;
 
         }
 
+        fileName.textContent =
+          "✓ Выбрано файлов: " +
+          files.length;
+
       }
     );
 
 
     /* =========================
-       SHOW DASHBOARD
-    ========================= */
+       GET FORM DATA
+    ========================== */
 
-    document.getElementById(
-      "dashboard"
-    ).style.display =
-      "block";
+    function getFormData() {
 
+      return {
 
-    /* =========================
-       ADD SMM VERDICT
-    ========================= */
+        username:
+          document
+            .getElementById("username")
+            .value
+            .trim(),
 
-    let verdict =
-      document.getElementById(
-        "smmVerdict"
-      );
+        email:
+          document
+            .getElementById("email")
+            .value
+            .trim(),
 
+        niche:
+          document
+            .getElementById("niche")
+            .value
+            .trim(),
 
-    if (!verdict) {
+        smmBudget:
+          document
+            .getElementById("smmBudget")
+            .value
+            .trim(),
 
-      verdict =
-        document.createElement(
-          "div"
-        );
+        clients:
+          document
+            .getElementById("clients")
+            .value
+            .trim(),
 
-      verdict.id =
-        "smmVerdict";
+        averageCheck:
+          document
+            .getElementById("averageCheck")
+            .value
+            .trim(),
 
-      verdict.className =
-        "insight problem";
+        comment:
+          document
+            .getElementById("comment")
+            .value
+            .trim(),
 
+        files:
+          Array.from(
+            insights.files || []
+          )
 
-      verdict.innerHTML = `
-
-        <h3>
-          ⚠️ Главный вывод по SMM
-        </h3>
-
-        <p></p>
-
-      `;
-
-
-      const insightGrid =
-        document.querySelector(
-          ".insight-grid"
-        );
-
-
-      if (insightGrid) {
-
-        insightGrid.appendChild(
-          verdict
-        );
-
-      }
+      };
 
     }
 
 
-    verdict.querySelector(
-      "p"
-    ).textContent =
-      result.performance;
-
-
     /* =========================
-       ADD HOOKS
-    ========================= */
+       DEMO SUBMISSION
+    ========================== */
 
-    let hooksBlock =
-      document.getElementById(
-        "hooksBlock"
-      );
+    form.addEventListener(
+      "submit",
+      function (event) {
 
-
-    if (!hooksBlock) {
-
-      hooksBlock =
-        document.createElement(
-          "div"
-        );
-
-      hooksBlock.id =
-        "hooksBlock";
-
-      hooksBlock.className =
-        "plan";
+        event.preventDefault();
 
 
-      hooksBlock.innerHTML = `
-
-        <h3>
-          🎯 Hooks для новых Reels
-        </h3>
-
-        <div id="hooksList"></div>
-
-      `;
+        const data =
+          getFormData();
 
 
-      const dashboardContainer =
-        document.querySelector(
-          "#dashboard .container"
-        );
+        /*
+          Пока ничего реально не отправляется.
+          Это только демонстрация будущего процесса.
+        */
 
 
-      if (dashboardContainer) {
+        submitButton.disabled =
+          true;
 
-        dashboardContainer.appendChild(
-          hooksBlock
-        );
-
-      }
-
-    }
+        submitButton.textContent =
+          "Принимаем заявку...";
 
 
-    const hooksList =
-      document.getElementById(
-        "hooksList"
-      );
+        setTimeout(
+          function () {
+
+            auditSection.style.display =
+              "none";
+
+            loadingScreen.style.display =
+              "block";
+
+            loadingScreen.scrollIntoView({
+              behavior: "smooth"
+            });
 
 
-    hooksList.innerHTML = "";
+            runDemoLoading(
+              data
+            );
 
-
-    result.hooks.forEach(
-      function (hook, index) {
-
-        const item =
-          document.createElement(
-            "div"
-          );
-
-        item.className =
-          "plan-item";
-
-
-        item.innerHTML = `
-
-          <div class="plan-number">
-            ${index + 1}
-          </div>
-
-          <div>
-            ${hook}
-          </div>
-
-        `;
-
-
-        hooksList.appendChild(
-          item
+          },
+          800
         );
 
       }
@@ -1927,101 +1484,211 @@ function runDemoAudit() {
 
 
     /* =========================
-       ADD BUSINESS QUESTION
-    ========================= */
+       DEMO LOADING
+    ========================== */
 
-    let businessQuestion =
-      document.getElementById(
-        "businessQuestion"
-      );
+    function runDemoLoading(data) {
+
+      let progress = 0;
 
 
-    if (!businessQuestion) {
+      const messages = [
 
-      businessQuestion =
-        document.createElement(
-          "div"
+        "Проверяем данные заявки...",
+
+        "Анализируем Instagram-профиль...",
+
+        "Проверяем контент и Reels...",
+
+        "Оцениваем коммерческую подачу...",
+
+        "Сопоставляем SMM и бизнес-цели...",
+
+        "Формируем персональный вывод..."
+
+      ];
+
+
+      let messageIndex = 0;
+
+
+      const interval =
+        setInterval(
+          function () {
+
+            progress += 10;
+
+
+            if (
+              progress > 100
+            ) {
+
+              progress = 100;
+
+            }
+
+
+            progressLine.style.width =
+              progress + "%";
+
+
+            progressText.textContent =
+              "Подготавливаем анализ · " +
+              progress +
+              "%";
+
+
+            if (
+              progress % 20 === 0 &&
+              messageIndex <
+                messages.length
+            ) {
+
+              loadingText.textContent =
+                messages[
+                  messageIndex
+                ];
+
+              messageIndex++;
+
+            }
+
+
+            /*
+              Для прототипа не ждём реальные 15 минут.
+              Через несколько секунд показываем
+              финальный экран.
+            */
+
+            if (
+              progress >= 100
+            ) {
+
+              clearInterval(
+                interval
+              );
+
+
+              setTimeout(
+                function () {
+
+                  showSuccess(
+                    data.email
+                  );
+
+                },
+                600
+              );
+
+            }
+
+          },
+          220
         );
-
-      businessQuestion.id =
-        "businessQuestion";
-
-      businessQuestion.className =
-        "insight problem";
-
-
-      businessQuestion.innerHTML = `
-
-        <h3>
-          💰 Стоит ли платить за SMM?
-        </h3>
-
-        <p></p>
-
-      `;
-
-
-      const dashboardContainer =
-        document.querySelector(
-          "#dashboard .container"
-        );
-
-
-      if (dashboardContainer) {
-
-        dashboardContainer.appendChild(
-          businessQuestion
-        );
-
-      }
 
     }
 
 
-    businessQuestion.querySelector(
-      "p"
-    ).textContent =
-      "Если SMM оплачивается каждый месяц, по профилю должно быть видно не только ведение страницы, но и бизнес-результат. Сейчас недостаточно очевидно, что контент системно приводит охваты, заявки и клиентов. Поэтому эффективность текущего SMM вызывает вопросы.";
+    /* =========================
+       SUCCESS
+    ========================== */
+
+    function showSuccess(email) {
+
+      loadingScreen.style.display =
+        "none";
+
+      successScreen.style.display =
+        "block";
+
+
+      successEmail.textContent =
+        email;
+
+
+      successScreen.scrollIntoView({
+        behavior: "smooth"
+      });
+
+
+      /*
+        Визуальный таймер.
+        В реальной версии здесь
+        будет статус настоящей заявки.
+      */
+
+      startTimer();
+
+    }
 
 
     /* =========================
-       RESET BUTTON
-    ========================= */
+       15 MINUTE TIMER
+    ========================== */
 
-    button.disabled =
-      false;
+    function startTimer() {
 
-
-    button.textContent =
-      "Запустить AI-анализ →";
+      let seconds = 900;
 
 
-    /* =========================
-       SCROLL
-    ========================= */
-
-    document.getElementById(
-      "dashboard"
-    ).scrollIntoView({
-
-      behavior: "smooth"
-
-    });
+      timer.textContent =
+        "15:00";
 
 
-  }, 2200);
+      const interval =
+        setInterval(
+          function () {
 
-}
+            seconds--;
 
 
-/* =========================
-   BUTTON CONNECTION
-========================= */
+            if (
+              seconds < 0
+            ) {
 
-function runAIAudit() {
+              clearInterval(
+                interval
+              );
 
-  runDemoAudit();
+              timer.textContent =
+                "Готово";
 
-}
+              return;
 
-</script>
+            }
+
+
+            const minutes =
+              Math.floor(
+                seconds / 60
+              );
+
+
+            const remaining =
+              seconds % 60;
+
+
+            timer.textContent =
+
+              String(minutes)
+                .padStart(2, "0")
+
+              +
+
+              ":"
+
+              +
+
+              String(remaining)
+                .padStart(2, "0");
+
+          },
+          1000
+        );
+
+    }
+
+  </script>
+
+</body>
+</html>
