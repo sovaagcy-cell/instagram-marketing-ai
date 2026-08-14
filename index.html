@@ -1245,7 +1245,127 @@
   <script>
 
     // ИСПРАВЛЕНО: Добавлены кавычки вокруг ключа
+
 const OPENAI_API_KEY = "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";
+
+const insightsInput = document.getElementById("insights");
+const fileName = document.getElementById("fileName");
+
+if (insightsInput) {
+  insightsInput.addEventListener("change", function () {
+    const files = Array.from(this.files || []);
+
+    if (!files.length) {
+      fileName.textContent = "";
+      return;
+    }
+
+    fileName.textContent = "✓ Загружено файлов: " + files.length;
+  });
+}
+
+async function runAIAudit() {
+  const username = document.getElementById("username").value.trim();
+  const niche = document.getElementById("niche").value.trim();
+  const goal = document.getElementById("goal").value;
+  const budget = document.getElementById("budget").value;
+
+  if (!username) {
+    alert("Введите Instagram username");
+    return;
+  }
+
+  const button = document.querySelector(".analyze-button");
+  button.disabled = true;
+  button.textContent = "AI анализирует...";
+
+  const prompt = `
+Ты профессиональный AI-аудитор Instagram и SMM.
+Проанализируй бизнес на основе данных пользователя.
+
+Instagram: ${username}
+Ниша: ${niche || "не указана"}
+Главная цель: ${goal || "не указана"}
+Месячный бюджет SMM: ${budget || "не указан"}
+
+На данный момент пользователь предоставляет только общую информацию.
+Если реальных Instagram Insights нет, НЕ выдумывай цифры.
+Сделай полезный предварительный маркетинговый аудит.
+
+Ответ должен содержать:
+1. Общая оценка маркетинга.
+2. Главные возможные проблемы.
+3. Сильные стороны.
+4. Что проверить в Instagram Insights.
+5. Какие показатели наиболее важны.
+6. Что улучшить в контенте.
+7. Что улучшить в Reels.
+8. Что улучшить в продажах и CTA.
+9. План действий на следующие 30 дней.
+
+Пиши понятно, профессионально и конкретно.
+Ответ на русском языке.
+`;
+
+  try {
+    // ИСПРАВЛЕНО: Правильный endpoint для отправки запросов
+    const response = await fetch("https://openai.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + OPENAI_API_KEY
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini", // ИСПРАВЛЕНО: gpt-5 не существует, используем стабильную gpt-4o-mini
+        messages: [
+          {
+            role: "user",
+            content: prompt // ИСПРАВЛЕНО: Правильная структура запроса для чат-моделей
+          }
+        ],
+        temperature: 0.7
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        data.error?.message || "Ошибка OpenAI API"
+      );
+    }
+
+    // ИСПРАВЛЕНО: Изменен путь, откуда достается текст ответа OpenAI
+    const answer = data.choices?.[0]?.message?.content || "AI не вернул ответ.";
+
+    document.getElementById("profileName").textContent = username;
+    document.getElementById("dashboard").style.display = "block";
+
+    const scoreInfo = document.querySelector(".score-info p");
+    // Сделаем textContent, но если у вас там Markdown от OpenAI, 
+    // в будущем можно будет подключить библиотеку marked и выводить через innerHTML
+    scoreInfo.textContent = answer; 
+
+    const scoreTitle = document.querySelector(".score-info h3");
+    scoreTitle.textContent = "AI-анализ готов";
+
+    document.getElementById("dashboard").scrollIntoView({
+      behavior: "smooth"
+    });
+
+  } catch (error) {
+    console.error(error);
+    alert("Ошибка AI:\n\n" + error.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Запустить AI-анализ →";
+  }
+}
+
+function runDemoAudit() {
+  runAIAudit();
+}
+";
 
 const insightsInput = document.getElementById("insights");
 const fileName = document.getElementById("fileName");
